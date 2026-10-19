@@ -1,754 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-    <meta name="google-site-verification" content="k0uLMifDo240w9uuDjgKDmjoFWhG0Sg_TveDDeTknpY" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Gyan Sagar पर शिक्षा, सरकारी योजनाओं, नौकरियों, छात्रवृत्ति, टेक्नोलॉजी और सामान्य ज्ञान की जानकारी पाएँ।">
-
-<title>Gyan Sagar - ज्ञान का सागर</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gyan Sagar Admin</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --blue: #073b78;
-    --darkblue: #082c58;
-    --lightblue: #eaf3ff;
-    --green: #07966f;
-    --text: #173354;
-}
-
-body {
-    font-family: "Noto Sans Devanagari", Arial, sans-serif;
-    background: #f5f8fd;
-    color: var(--text);
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* TOP BAR */
-
-.topbar {
-    background: #092d58;
-    color: white;
-    padding: 10px 3%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    font-size: 14px;
-}
-
-.topbrand {
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.tagline {
-    font-style: italic;
-    color: #e5efff;
-}
-
-/* MAIN HEADER */
-
-.header {
-    background: white;
-    padding: 18px 3%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    box-shadow: 0 3px 15px #082c5810;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    background: linear-gradient(145deg, #e7f4ff, #d4f5e9);
-}
-
-.brand-name {
-    font-size: clamp(30px, 4vw, 55px);
-    font-weight: 900;
-    letter-spacing: -2px;
-    line-height: 1.1;
-    color: var(--blue);
-}
-
-.brand-name span {
-    color: var(--green);
-}
-
-.brand p {
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-top: 7px;
-    color: #52647a;
-}
-
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-}
-
-.nav a {
-    padding: 10px 14px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 14px;
-    transition: .2s;
-}
-
-.nav a:hover,
-.nav a.active {
-    background: #0864d9;
-    color: white;
-}
-
-/* HERO BANNER */
-
-.hero {
-    min-height: 390px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 45px 20px 80px;
-    color: white;
-    background:
-        radial-gradient(ellipse at 85% 25%, #ffd985 0%, transparent 24%),
-        linear-gradient(175deg, #67c5f0 0%, #b9e8fa 35%,
-        #477e9e 60%, #123c68 100%);
-}
-
-.hero::before {
-    content: "🌄";
-    position: absolute;
-    font-size: clamp(100px, 20vw, 220px);
-    left: 2%;
-    bottom: 0;
-    opacity: .6;
-}
-
-.hero::after {
-    content: "📚 🎓";
-    position: absolute;
-    right: 4%;
-    bottom: 38px;
-    font-size: clamp(40px, 7vw, 85px);
-    opacity: .9;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.hero-logo {
-    font-size: clamp(43px, 8vw, 90px);
-    font-weight: 900;
-    letter-spacing: -3px;
-    line-height: 1.2;
-    text-shadow: 0 3px 15px #092d5840;
-}
-
-.hero-logo span {
-    color: #00a875;
-}
-
-.hero h1 {
-    font-size: clamp(22px, 3.5vw, 38px);
-    margin: 12px 0;
-    text-shadow: 0 2px 8px #123c68;
-}
-
-.hero p {
-    font-size: 17px;
-    margin: 10px auto 22px;
-    max-width: 720px;
-}
-
-.hero-slogan {
-    display: inline-block;
-    background: #073b78;
-    border-radius: 35px;
-    padding: 8px 28px;
-    font-size: 20px;
-    font-style: italic;
-    margin-bottom: 22px;
-}
-
-/* SEARCH */
-
-.search {
-    max-width: 850px;
-    width: 95%;
-    margin: 0 auto;
-    background: white;
-    border-radius: 50px;
-    padding: 8px;
-    display: flex;
-    gap: 8px;
-    box-shadow: 0 8px 25px #082c5830;
-}
-
-.search input {
-    flex: 1;
-    min-width: 0;
-    border: none;
-    outline: none;
-    padding: 14px 18px;
-    font-size: 16px;
-    border-radius: 35px;
-    color: #243e5d;
-}
-
-.search button {
-    background: #0759b7;
-    color: white;
-    border: none;
-    border-radius: 35px;
-    padding: 13px 28px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.search button:hover {
-    background: #063d80;
-}
-
-/* SECTION */
-
-.section {
-    padding: 30px 3%;
-}
-
-.section-heading {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 22px;
-}
-
-.section-heading h2 {
-    color: var(--blue);
-    font-size: clamp(23px, 3vw, 32px);
-    white-space: nowrap;
-}
-
-.heading-line {
-    flex: 1;
-    height: 2px;
-    background: #c7d9f0;
-}
-
-/* CATEGORY CARDS */
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.category {
-    padding: 18px 8px 14px;
-    text-align: center;
-    border-radius: 14px;
-    min-height: 165px;
-    transition: transform .2s, box-shadow .2s;
-    border: 1px solid #ffffff;
-}
-
-.category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px #102c5018;
-}
-
-.category .icon {
-    display: block;
-    font-size: 38px;
-    margin-bottom: 8px;
-}
-
-.category h3 {
-    font-size: 14px;
-    line-height: 1.4;
-    margin-bottom: 5px;
-}
-
-.category p {
-    font-size: 13px;
-}
-
-.category .arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    color: white;
-    background: var(--blue);
-}
-
-.c1 { background: #e4f1ff; color: #074a91; }
-.c2 { background: #e5f8e9; color: #12623b; }
-.c3 { background: #fff0ee; color: #bd303d; }
-.c4 { background: #eeeaff; color: #603bc3; }
-.c5 { background: #fff6d9; color: #9a6900; }
-.c6 { background: #ffe9eb; color: #b72d47; }
-.c7 { background: #e0faf7; color: #11665e; }
-.c8 { background: #f0eaff; color: #5635ad; }
-
-/* LATEST UPDATES */
-
-.updates {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 15px;
-}
-
-.article {
-    display: block;
-    background: white;
-    border: 1px solid #e0e8f2;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform .2s, box-shadow .2s;
-}
-
-.article:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px #092d5815;
-}
-
-.article-image {
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    background: linear-gradient(135deg, #e4f1ff, #c9e4ff);
-}
-
-.article-body {
-    padding: 14px;
-}
-
-.badge {
-    display: inline-block;
-    background: #d9f6ee;
-    color: #08735b;
-    border-radius: 15px;
-    padding: 3px 10px;
-    font-size: 12px;
-    margin-bottom: 8px;
-}
-
-.article h3 {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-.article-date {
-    font-size: 12px;
-    color: #65758b;
-}
-
-.article-date a {
-    color: #0759b7;
-}
-
-.no-results {
-    display: none;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* ABOUT */
-
-.about {
-    margin: 15px 3% 35px;
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;
-    background: #e7f1ff;
-}
-
-.about h2 {
-    color: var(--blue);
-    margin-bottom: 8px;
-}
-
-/* FOOTER */
-
-.footer {
-    background: #082c58;
-    color: white;
-    text-align: center;
-    padding: 28px 15px;
-}
-
-.footer p {
-    margin: 5px;
-}
-
-.footer a {
-    color: #b9dcff;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-    .categories {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .updates {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 650px) {
-    .topbar {
-        justify-content: center;
-        text-align: center;
-    }
-
-    .header {
-        justify-content: center;
-    }
-
-    .brand {
-        justify-content: center;
-    }
-
-    .brand-name {
-        font-size: 35px;
-    }
-
-    .logo {
-        width: 60px;
-        height: 60px;
-        font-size: 38px;
-    }
-
-    .nav {
-        justify-content: center;
-    }
-
-    .nav a {
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-
-    .hero {
-        min-height: 350px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .hero-slogan {
-        font-size: 15px;
-        padding: 8px 16px;
-    }
-
-    .search {
-        border-radius: 14px;
-    }
-
-    .search input {
-        padding: 12px 8px;
-        font-size: 13px;
-    }
-
-    .search button {
-        padding: 12px;
-        font-size: 13px;
-    }
-
-    .categories {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .updates {
-        grid-template-columns: 1fr;
-    }
-
-    .section-heading h2 {
-        white-space: normal;
-    }
-
-    .about {
-        padding: 22px;
-    }
-}
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#172033;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0}.top{background:#173b72;color:white;padding:22px max(18px,calc((100% - 1080px)/2));}
+.top h1{margin:0;font-size:1.5rem}.top p{margin:5px 0 0;color:#dbeafe}
+main{max-width:1080px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:300px 1fr;gap:18px}
+.card{background:white;border:1px solid #e1e7f0;border-radius:14px;padding:18px;box-shadow:0 4px 18px #152b4a0a}
+h2{font-size:1.1rem;margin:0 0 14px}label{display:block;font-size:.9rem;font-weight:650;margin:12px 0 6px}
+input,textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit;background:white;color:#172033}
+textarea{min-height:220px;resize:vertical}button{border:0;border-radius:8px;padding:10px 13px;font:inherit;font-weight:650;cursor:pointer}
+.primary{background:#1d4ed8;color:white}.secondary{background:#e8eef8;color:#173b72}.danger{background:#fee2e2;color:#991b1b}.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.note{font-size:.85rem;line-height:1.5;color:#475569}.status{padding:10px;border-radius:8px;background:#eff6ff;color:#1e40af;margin-top:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.list{display:grid;gap:8px}.post{border:1px solid #e2e8f0;border-radius:9px;padding:11px;display:flex;gap:8px;align-items:center;justify-content:space-between}.post button{padding:7px 9px}.hidden{display:none!important}.tag{font-size:.75rem;background:#e0e7ff;color:#3730a3;border-radius:999px;padding:3px 8px}
+@media(max-width:760px){main{grid-template-columns:1fr}.top{padding:18px}}
 </style>
 </head>
-
 <body>
-
-<div class="topbar">
-    <div class="topbrand">📖 ज्ञान का सागर, जानकारी अपार!</div>
-    <div class="tagline">“Better Information, Brighter Future”</div>
-    <div>📍 India &nbsp; | &nbsp; 🌐 हिंदी / English</div>
-</div>
-
-<header class="header">
-    <a href="#home" class="brand">
-        <div class="logo">🌅</div>
-        <div>
-            <div class="brand-name">Gyan <span>Sagar</span></div>
-            <p>KNOWLEDGE FOR A BETTER TOMORROW</p>
-        </div>
-    </a>
-
-    <nav class="nav">
-        <a class="active" href="#home">⌂ Home</a>
-        <a href="#categories">🎓 Education</a>
-        <a href="#categories">🏛️ Government Schemes</a>
-        <a href="#categories">💼 Jobs</a>
-        <a href="#categories">💻 Technology</a>
-        <a href="#categories">💰 Finance</a>
-        <a href="#updates">📰 News</a>
-        <a href="#categories">🌐 Online Services</a>
-    </nav>
-</header>
-
+<header class="top"><h1>📚 Gyan Sagar — Admin Panel</h1><p>पोस्ट लिखें और GitHub repository में सेव करें</p></header>
 <main>
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-logo">Gyan <span>Sagar</span></div>
-
-            <h1>ज्ञान का सागर, जानकारी अपार!</h1>
-
-            <div class="hero-slogan">
-                Better Information &nbsp; Brighter Future
-            </div>
-
-            <p>
-                शिक्षा, सरकारी योजनाओं, करियर और तकनीक की उपयोगी
-                जानकारी एक ही जगह।
-            </p>
-
-            <form class="search" id="searchForm">
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Search for articles, schemes, jobs, education..."
-                    aria-label="जानकारी खोजें"
-                >
-                <button type="submit">Search →</button>
-            </form>
-        </div>
-    </section>
-
-    <section class="section" id="categories">
-        <div class="section-heading">
-            <h2>हमारी जानकारी की कैटेगरी</h2>
-            <div class="heading-line"></div>
-        </div>
-
-        <div class="categories" id="categoryGrid">
-
-            <a class="category c1" href="#updates">
-                <span class="icon">🎓</span>
-                <h3>Education & Results</h3>
-                <p>शिक्षा और परिणाम</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c2" href="#updates">
-                <span class="icon">🏛️</span>
-                <h3>Government Schemes</h3>
-                <p>सरकारी योजनाएँ</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c3" href="#updates">
-                <span class="icon">💼</span>
-                <h3>Jobs</h3>
-                <p>नौकरियाँ</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c4" href="#updates">
-                <span class="icon">📱</span>
-                <h3>Technology</h3>
-                <p>टेक्नोलॉजी</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c5" href="#updates">
-                <span class="icon">🏦</span>
-                <h3>Banking & Finance</h3>
-                <p>बैंकिंग और फाइनेंस</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c6" href="#updates">
-                <span class="icon">📰</span>
-                <h3>News</h3>
-                <p>ताज़ा खबरें</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c7" href="#updates">
-                <span class="icon">💡</span>
-                <h3>General Knowledge</h3>
-                <p>सामान्य ज्ञान</p>
-                <span class="arrow">➜</span>
-            </a>
-
-            <a class="category c8" href="#updates">
-                <span class="icon">🌐</span>
-                <h3>Online Services</h3>
-                <p>ऑनलाइन सेवाएँ</p>
-                <span class="arrow">➜</span>
-            </a>
-
-        </div>
-    </section>
-
-    <section class="section" id="updates">
-        <div class="section-heading">
-            <h2>🔥 Latest Updates</h2>
-            <div class="heading-line"></div>
-        </div>
-
-        <div class="updates" id="articleGrid">
-
-            <article class="article" data-category="education">
-                <div class="article-image">🎓</div>
-                <div class="article-body">
-                    <span class="badge">Education</span>
-                    <h3>CG BSc Nursing Counselling: तारीख और कॉलेज की जानकारी</h3>
-                    <p class="article-date">📅 जानकारी प्रकाशित होने पर तारीख यहाँ दिखेगी</p>
-                </div>
-            </article>
-
-            <article class="article" data-category="schemes">
-                <div class="article-image">🏠</div>
-                <div class="article-body">
-                    <span class="badge">Government Scheme</span>
-                    <h3>सरकारी योजनाएँ: पात्रता, आवेदन प्रक्रिया और लाभ</h3>
-                    <p class="article-date">📅 आवेदन से पहले आधिकारिक सूचना जाँचें</p>
-                </div>
-            </article>
-
-            <article class="article" data-category="technology">
-                <div class="article-image">📱</div>
-                <div class="article-body">
-                    <span class="badge">Technology</span>
-                    <h3>मोबाइल और टेक्नोलॉजी: उपयोगी टिप्स और जानकारी</h3>
-                    <p class="article-date">📅 जानकारी प्रकाशित होने पर तारीख यहाँ दिखेगी</p>
-                </div>
-            </article>
-
-            <article class="article" data-category="jobs">
-                <div class="article-image">💼</div>
-                <div class="article-body">
-                    <span class="badge">Jobs</span>
-                    <h3>सरकारी नौकरी: योग्यता, आवेदन और परीक्षा की जानकारी</h3>
-                    <p class="article-date">📅 आवेदन से पहले आधिकारिक नोटिफिकेशन जाँचें</p>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="no-results" id="noResults">
-            कोई मिलती-जुलती जानकारी नहीं मिली। दूसरे शब्दों से खोजें।
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <h2>Gyan Sagar में आपका स्वागत है!</h2>
-        <p>
-            हमारा उद्देश्य उपयोगी जानकारी को सरल भाषा में
-            पाठकों तक पहुँचाना है।
-        </p>
-        <p>
-            सरकारी योजनाओं, नौकरी और परीक्षा से जुड़ी जानकारी
-            के लिए संबंधित आधिकारिक वेबसाइट पर विवरण अवश्य जाँचें।
-        </p>
-    </section>
+<section class="card">
+<h2>1. GitHub से कनेक्ट करें</h2>
+<p class="note">यह पैनल आपके ब्राउज़र से सीधे GitHub API इस्तेमाल करता है। Token केवल इस खुले पेज की memory में रहता है; इसे code या browser storage में सेव नहीं किया जाता। काम पूरा होने पर Disconnect करें।</p>
+<label for="owner">GitHub username</label><input id="owner" value="premsingh1051974gith" autocomplete="username">
+<label for="repo">Repository</label><input id="repo" value="gyan-sagar">
+<label for="branch">Branch</label><input id="branch" value="main">
+<label for="token">Fine-grained Personal Access Token</label><input id="token" type="password" placeholder="github_pat_..." autocomplete="off">
+<div class="row"><button class="primary" id="connect">Connect & Load Posts</button><button class="secondary" id="disconnect">Disconnect</button></div>
+<div class="status" id="status" role="status">अभी GitHub से कनेक्ट नहीं है।</div>
+<hr style="border:0;border-top:1px solid #e2e8f0;margin:18px 0">
+<h2>ज़रूरी सुरक्षा</h2>
+<p class="note">Token बनाते समय केवल इसी repository की access दें और <b>Contents: Read and write</b> permission चुनें। Token को किसी से साझा न करें। यह सार्वजनिक साइट है, इसलिए कभी भी token को HTML file में न लिखें।</p>
+</section>
+<section class="card">
+<h2>2. पोस्ट मैनेज करें <span class="tag" id="count">0 पोस्ट</span></h2>
+<p class="note">यह शुरुआती पैनल पोस्ट को repository के root में <code>posts.json</code> में सेव करता है। आपकी मौजूदा homepage को इस फ़ाइल से पोस्ट दिखाने के लिए अलग से जोड़ना पड़ सकता है।</p>
+<div id="postlist" class="list"><p class="note">पहले GitHub से कनेक्ट करें।</p></div>
+<hr style="border:0;border-top:1px solid #e2e8f0;margin:18px 0">
+<h2 id="formtitle">नई पोस्ट लिखें</h2>
+<label for="title">पोस्ट का शीर्षक</label><input id="title" placeholder="उदाहरण: सामान्य ज्ञान के 10 सवाल">
+<label for="slug">URL slug (English, optional)</label><input id="slug" placeholder="samanya-gyan-10-sawal">
+<label for="category">Category</label><input id="category" placeholder="सामान्य ज्ञान">
+<label for="excerpt">छोटा विवरण</label><input id="excerpt" placeholder="पोस्ट के बारे में एक लाइन">
+<label for="content">पोस्ट की सामग्री</label><textarea id="content" placeholder="यहाँ अपना लेख लिखें..."></textarea>
+<div class="row"><button class="primary" id="save" disabled>Save Post to GitHub</button><button class="secondary" id="clear">नई पोस्ट / Clear</button></div>
+<p class="note">Save करने पर GitHub repository में commit बनेगा। इससे वेबसाइट पर पोस्ट तभी दिखेगी जब homepage या post template इस posts.json को पढ़ता हो।</p>
+</section>
 </main>
-
-<footer class="footer">
-    <p>📖 <strong>Gyan Sagar | ज्ञान का सागर</strong></p>
-    <p>ज्ञान का सागर, जानकारी अपार!</p>
-    <p>© <span id="year"></span> Gyan Sagar. All rights reserved.</p>
-</footer>
-
 <script>
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-document.getElementById("searchForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const query = document.getElementById("searchInput")
-        .value.trim().toLocaleLowerCase();
-
-    const cards = document.querySelectorAll("#articleGrid .article");
-    let visible = 0;
-
-    cards.forEach(function(card) {
-        const text = card.textContent.toLocaleLowerCase();
-        const matches = query === "" || text.includes(query);
-
-        card.style.display = matches ? "" : "none";
-
-        if (matches) {
-            visible++;
-        }
-    });
-
-    document.getElementById("noResults").style.display =
-        visible > 0 ? "none" : "block";
-
-    document.getElementById("updates").scrollIntoView({
-        behavior: "smooth"
-    });
-});
+const $=id=>document.getElementById(id);
+let token='', posts=[], sha=null, editingId=null;
+const apiBase='https://api.github.com';
+function status(msg, bad=false){$('status').textContent=msg;$('status').style.background=bad?'#fef2f2':'#eff6ff';$('status').style.color=bad?'#991b1b':'#1e40af'}
+function repoPath(){return `repos/${encodeURIComponent($('owner').value.trim())}/${encodeURIComponent($('repo').value.trim())}`}
+async function api(path, options={}) {
+ const res=await fetch(`${apiBase}/${path}`,{...options,headers:{'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Authorization':`Bearer ${token}`,...(options.headers||{})}});
+ const data=await res.json().catch(()=>({}));
+ if(!res.ok) throw new Error(data.message||`GitHub API error ${res.status}`);
+ return data;
+}
+function b64utf8(str){return btoa(unescape(encodeURIComponent(str)))}
+function fromB64(str){return decodeURIComponent(escape(atob(str.replace(/\n/g,''))))}
+async function loadPosts(){
+ const path=repoPath()+'/contents/posts.json?ref='+encodeURIComponent($('branch').value.trim());
+ try{const f=await api(path);sha=f.sha;posts=JSON.parse(fromB64(f.content));if(!Array.isArray(posts))posts=[]}
+ catch(e){if(String(e.message).includes('Not Found')){posts=[];sha=null;status('GitHub कनेक्ट हो गया। posts.json अभी नहीं है; पहली पोस्ट सेव करने पर बन जाएगी।')}else throw e}
+ render();$('save').disabled=false;
+}
+function render(){
+ $('count').textContent=posts.length+' पोस्ट';const list=$('postlist');list.innerHTML='';
+ if(!posts.length){list.innerHTML='<p class="note">अभी कोई पोस्ट नहीं है। दाईं तरफ़ पहली पोस्ट लिखें।</p>';return}
+ posts.forEach((p,i)=>{const row=document.createElement('div');row.className='post';const info=document.createElement('div');const title=document.createElement('strong');title.textContent=p.title||'(बिना शीर्षक)';const sub=document.createElement('div');sub.className='note';sub.textContent=(p.category||'बिना category')+' · '+(p.published?'Published':'Draft');info.append(title,sub);const actions=document.createElement('div');actions.className='row';actions.style.margin='0';const edit=document.createElement('button');edit.className='secondary';edit.textContent='Edit';edit.onclick=()=>editPost(i);const del=document.createElement('button');del.className='danger';del.textContent='Delete';del.onclick=()=>deletePost(i);actions.append(edit,del);row.append(info,actions);list.append(row)})
+}
+function makeSlug(s){return s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80)||'post-'+Date.now()}
+function clearForm(){editingId=null;$('title').value='';$('slug').value='';$('category').value='';$('excerpt').value='';$('content').value='';$('formtitle').textContent='नई पोस्ट लिखें';$('save').textContent='Save Post to GitHub'}
+function editPost(i){const p=posts[i];editingId=p.id;$('title').value=p.title||'';$('slug').value=p.slug||'';$('category').value=p.category||'';$('excerpt').value=p.excerpt||'';$('content').value=p.content||'';$('formtitle').textContent='पोस्ट एडिट करें';$('save').textContent='Update Post on GitHub';window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+async function commitPosts(message){
+ const path=repoPath()+'/contents/posts.json';
+ const body={message,content:b64utf8(JSON.stringify(posts,null,2)+'\n'),branch:$('branch').value.trim()};
+ if(sha)body.sha=sha;
+ const result=await api(path,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+ sha=result.content.sha;render();
+}
+async function deletePost(i){if(!confirm(`"${posts[i].title}" हटाएँ? यह बदलाव GitHub में commit होगा।`))return;try{posts.splice(i,1);await commitPosts('Delete post from Gyan Sagar admin');status('पोस्ट हटाकर GitHub में सेव कर दी गई।')}catch(e){status('Save नहीं हो सका: '+e.message,true)}}
+$('connect').onclick=async()=>{token=$('token').value.trim();if(!token){status('पहले GitHub token डालें।',true);return}try{const r=await api(repoPath());status('GitHub से कनेक्शन सफल: '+r.full_name);await loadPosts()}catch(e){token='';status('कनेक्शन नहीं हुआ: '+e.message+'\nUsername, repository, branch और token permissions जाँचें।',true)}};
+$('disconnect').onclick=()=>{token='';posts=[];sha=null;$('token').value='';$('save').disabled=true;render();status('Disconnect हो गया। Token इस पेज की memory से हटा दिया गया।')};
+$('save').onclick=async()=>{if(!token){status('पहले GitHub से कनेक्ट करें।',true);return}const title=$('title').value.trim(),content=$('content').value.trim();if(!title||!content){status('Title और सामग्री दोनों भरें।',true);return}const slug=makeSlug($('slug').value.trim()||title);const item={id:editingId||((crypto.randomUUID&&crypto.randomUUID())||String(Date.now())),title,slug,category:$('category').value.trim(),excerpt:$('excerpt').value.trim(),content,updatedAt:new Date().toISOString(),published:true};if(editingId){const i=posts.findIndex(p=>p.id===editingId);if(i>=0)posts[i]=item}else{item.createdAt=item.updatedAt;posts.unshift(item)}try{await commitPosts(editingId?'Update post from Gyan Sagar admin':'Add post from Gyan Sagar admin');clearForm();status('सफलता! पोस्ट GitHub repository की posts.json में सेव हो गई। अब वेबसाइट पर दिखाने के लिए homepage integration की ज़रूरत हो सकती है।')}catch(e){status('Save नहीं हो सका: '+e.message+'\nअगर पोस्ट सूची में बदली दिखे तो पेज refresh करने से पहले GitHub जाँचें।',true)}};
+$('clear').onclick=clearForm;
 </script>
-
 </body>
 </html>
