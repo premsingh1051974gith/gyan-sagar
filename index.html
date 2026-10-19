@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Gyan Sagar पर शिक्षा, सरकारी योजनाओं, नौकरियों, छात्रवृत्ति, टेक्नोलॉजी और सामान्य ज्ञान की जानकारी पाएँ।">
+
+<title>Gyan Sagar - ज्ञान का सागर</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #073b78;
+    --darkblue: #082c58;
+    --lightblue: #eaf3ff;
+    --green: #07966f;
+    --text: #173354;
+}
+
+body {
+    font-family: "Noto Sans Devanagari", Arial, sans-serif;
+    background: #f5f8fd;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* TOP BAR */
+
+.topbar {
+    background: #092d58;
+    color: white;
+    padding: 10px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.topbrand {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #e5efff;
+}
+
+/* MAIN HEADER */
+
+.header {
+    background: white;
+    padding: 18px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 15px #082c5810;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    background: linear-gradient(145deg, #e7f4ff, #d4f5e9);
+}
+
+.brand-name {
+    font-size: clamp(30px, 4vw, 55px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: var(--blue);
+}
+
+.brand-name span {
+    color: var(--green);
+}
+
+.brand p {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 7px;
+    color: #52647a;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav a {
+    padding: 10px 14px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.nav a:hover,
+.nav a.active {
+    background: #0864d9;
+    color: white;
+}
+
+/* HERO BANNER */
+
+.hero {
+    min-height: 390px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px 80px;
+    color: white;
+    background:
+        radial-gradient(ellipse at 85% 25%, #ffd985 0%, transparent 24%),
+        linear-gradient(175deg, #67c5f0 0%, #b9e8fa 35%,
+        #477e9e 60%, #123c68 100%);
+}
+
+.hero::before {
+    content: "🌄";
+    position: absolute;
+    font-size: clamp(100px, 20vw, 220px);
+    left: 2%;
+    bottom: 0;
+    opacity: .6;
+}
+
+.hero::after {
+    content: "📚 🎓";
+    position: absolute;
+    right: 4%;
+    bottom: 38px;
+    font-size: clamp(40px, 7vw, 85px);
+    opacity: .9;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.hero-logo {
+    font-size: clamp(43px, 8vw, 90px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1.2;
+    text-shadow: 0 3px 15px #092d5840;
+}
+
+.hero-logo span {
+    color: #00a875;
+}
+
+.hero h1 {
+    font-size: clamp(22px, 3.5vw, 38px);
+    margin: 12px 0;
+    text-shadow: 0 2px 8px #123c68;
+}
+
+.hero p {
+    font-size: 17px;
+    margin: 10px auto 22px;
+    max-width: 720px;
+}
+
+.hero-slogan {
+    display: inline-block;
+    background: #073b78;
+    border-radius: 35px;
+    padding: 8px 28px;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 22px;
+}
+
+/* SEARCH */
+
+.search {
+    max-width: 850px;
+    width: 95%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 50px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    box-shadow: 0 8px 25px #082c5830;
+}
+
+.search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 35px;
+    color: #243e5d;
+}
+
+.search button {
+    background: #0759b7;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    padding: 13px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #063d80;
+}
+
+/* SECTION */
+
+.section {
+    padding: 30px 3%;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    color: var(--blue);
+    font-size: clamp(23px, 3vw, 32px);
+    white-space: nowrap;
+}
+
+.heading-line {
+    flex: 1;
+    height: 2px;
+    background: #c7d9f0;
+}
+
+/* CATEGORY CARDS */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.category {
+    padding: 18px 8px 14px;
+    text-align: center;
+    border-radius: 14px;
+    min-height: 165px;
+    transition: transform .2s, box-shadow .2s;
+    border: 1px solid #ffffff;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #102c5018;
+}
+
+.category .icon {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.category h3 {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.category p {
+    font-size: 13px;
+}
+
+.category .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: white;
+    background: var(--blue);
+}
+
+.c1 { background: #e4f1ff; color: #074a91; }
+.c2 { background: #e5f8e9; color: #12623b; }
+.c3 { background: #fff0ee; color: #bd303d; }
+.c4 { background: #eeeaff; color: #603bc3; }
+.c5 { background: #fff6d9; color: #9a6900; }
+.c6 { background: #ffe9eb; color: #b72d47; }
+.c7 { background: #e0faf7; color: #11665e; }
+.c8 { background: #f0eaff; color: #5635ad; }
+
+/* LATEST UPDATES */
+
+.updates {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.article {
+    display: block;
+    background: white;
+    border: 1px solid #e0e8f2;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px #092d5815;
+}
+
+.article-image {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: linear-gradient(135deg, #e4f1ff, #c9e4ff);
+}
+
+.article-body {
+    padding: 14px;
+}
+
+.badge {
+    display: inline-block;
+    background: #d9f6ee;
+    color: #08735b;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.article h3 {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.article-date {
+    font-size: 12px;
+    color: #65758b;
+}
+
+.article-date a {
+    color: #0759b7;
+}
+
+.no-results {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* ABOUT */
+
+.about {
+    margin: 15px 3% 35px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    background: #e7f1ff;
+}
+
+.about h2 {
+    color: var(--blue);
+    margin-bottom: 8px;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #082c58;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+.footer p {
+    margin: 5px;
+}
+
+.footer a {
+    color: #b9dcff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .categories {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .updates {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .topbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .brand-name {
+        font-size: 35px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        font-size: 38px;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-slogan {
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+
+    .search {
+        border-radius: 14px;
+    }
+
+    .search input {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    .search button {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .updates {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        white-space: normal;
+    }
+
+    .about {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="topbrand">📖 ज्ञान का सागर, जानकारी अपार!</div>
+    <div class="tagline">“Better Information, Brighter Future”</div>
+    <div>📍 India &nbsp; | &nbsp; 🌐 हिंदी / English</div>
+</div>
+
+<header class="header">
+    <a href="#home" class="brand">
+        <div class="logo">🌅</div>
+        <div>
+            <div class="brand-name">Gyan <span>Sagar</span></div>
+            <p>KNOWLEDGE FOR A BETTER TOMORROW</p>
+        </div>
+    </a>
+
+    <nav class="nav">
+        <a class="active" href="#home">⌂ Home</a>
+        <a href="#categories">🎓 Education</a>
+        <a href="#categories">🏛️ Government Schemes</a>
+        <a href="#categories">💼 Jobs</a>
+        <a href="#categories">💻 Technology</a>
+        <a href="#categories">💰 Finance</a>
+        <a href="#updates">📰 News</a>
+        <a href="#categories">🌐 Online Services</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logo">Gyan <span>Sagar</span></div>
+
+            <h1>ज्ञान का सागर, जानकारी अपार!</h1>
+
+            <div class="hero-slogan">
+                Better Information &nbsp; Brighter Future
+            </div>
+
+            <p>
+                शिक्षा, सरकारी योजनाओं, करियर और तकनीक की उपयोगी
+                जानकारी एक ही जगह।
+            </p>
+
+            <form class="search" id="searchForm">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search for articles, schemes, jobs, education..."
+                    aria-label="जानकारी खोजें"
+                >
+                <button type="submit">Search →</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="categories">
+        <div class="section-heading">
+            <h2>हमारी जानकारी की कैटेगरी</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="categories" id="categoryGrid">
+
+            <a class="category c1" href="#updates">
+                <span class="icon">🎓</span>
+                <h3>Education & Results</h3>
+                <p>शिक्षा और परिणाम</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c2" href="#updates">
+                <span class="icon">🏛️</span>
+                <h3>Government Schemes</h3>
+                <p>सरकारी योजनाएँ</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c3" href="#updates">
+                <span class="icon">💼</span>
+                <h3>Jobs</h3>
+                <p>नौकरियाँ</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c4" href="#updates">
+                <span class="icon">📱</span>
+                <h3>Technology</h3>
+                <p>टेक्नोलॉजी</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c5" href="#updates">
+                <span class="icon">🏦</span>
+                <h3>Banking & Finance</h3>
+                <p>बैंकिंग और फाइनेंस</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c6" href="#updates">
+                <span class="icon">📰</span>
+                <h3>News</h3>
+                <p>ताज़ा खबरें</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c7" href="#updates">
+                <span class="icon">💡</span>
+                <h3>General Knowledge</h3>
+                <p>सामान्य ज्ञान</p>
+                <span class="arrow">➜</span>
+            </a>
+
+            <a class="category c8" href="#updates">
+                <span class="icon">🌐</span>
+                <h3>Online Services</h3>
+                <p>ऑनलाइन सेवाएँ</p>
+                <span class="arrow">➜</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="section" id="updates">
+        <div class="section-heading">
+            <h2>🔥 Latest Updates</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="updates" id="articleGrid">
+
+            <article class="article" data-category="education">
+                <div class="article-image">🎓</div>
+                <div class="article-body">
+                    <span class="badge">Education</span>
+                    <h3>CG BSc Nursing Counselling: तारीख और कॉलेज की जानकारी</h3>
+                    <p class="article-date">📅 जानकारी प्रकाशित होने पर तारीख यहाँ दिखेगी</p>
+                </div>
+            </article>
+
+            <article class="article" data-category="schemes">
+                <div class="article-image">🏠</div>
+                <div class="article-body">
+                    <span class="badge">Government Scheme</span>
+                    <h3>सरकारी योजनाएँ: पात्रता, आवेदन प्रक्रिया और लाभ</h3>
+                    <p class="article-date">📅 आवेदन से पहले आधिकारिक सूचना जाँचें</p>
+                </div>
+            </article>
+
+            <article class="article" data-category="technology">
+                <div class="article-image">📱</div>
+                <div class="article-body">
+                    <span class="badge">Technology</span>
+                    <h3>मोबाइल और टेक्नोलॉजी: उपयोगी टिप्स और जानकारी</h3>
+                    <p class="article-date">📅 जानकारी प्रकाशित होने पर तारीख यहाँ दिखेगी</p>
+                </div>
+            </article>
+
+            <article class="article" data-category="jobs">
+                <div class="article-image">💼</div>
+                <div class="article-body">
+                    <span class="badge">Jobs</span>
+                    <h3>सरकारी नौकरी: योग्यता, आवेदन और परीक्षा की जानकारी</h3>
+                    <p class="article-date">📅 आवेदन से पहले आधिकारिक नोटिफिकेशन जाँचें</p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="no-results" id="noResults">
+            कोई मिलती-जुलती जानकारी नहीं मिली। दूसरे शब्दों से खोजें।
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>Gyan Sagar में आपका स्वागत है!</h2>
+        <p>
+            हमारा उद्देश्य उपयोगी जानकारी को सरल भाषा में
+            पाठकों तक पहुँचाना है।
+        </p>
+        <p>
+            सरकारी योजनाओं, नौकरी और परीक्षा से जुड़ी जानकारी
+            के लिए संबंधित आधिकारिक वेबसाइट पर विवरण अवश्य जाँचें।
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>📖 <strong>Gyan Sagar | ज्ञान का सागर</strong></p>
+    <p>ज्ञान का सागर, जानकारी अपार!</p>
+    <p>© <span id="year"></span> Gyan Sagar. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const query = document.getElementById("searchInput")
+        .value.trim().toLocaleLowerCase();
+
+    const cards = document.querySelectorAll("#articleGrid .article");
+    let visible = 0;
+
+    cards.forEach(function(card) {
+        const text = card.textContent.toLocaleLowerCase();
+        const matches = query === "" || text.includes(query);
+
+        card.style.display = matches ? "" : "none";
+
+        if (matches) {
+            visible++;
+        }
+    });
+
+    document.getElementById("noResults").style.display =
+        visible > 0 ? "none" : "block";
+
+    document.getElementById("updates").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+</script>
+
+</body>
+</html>
